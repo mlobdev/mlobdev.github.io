@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel Lobato — Technical Programmer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vs2015.min.css">
+</head>
+<body>
+
+    <header class="hero">
+        <img class="hero__cover" src="../assets/photo-1612287230202-1ff1d85d1bdf.jfif" alt="Cover background">
+        
+        <div class="container hero__content">
+            <h1 class="hero__title">Manuel Lobato</h1>
+            <h2 class="hero__subtitle">Technical Gameplay Programmer</h2>
+            <p class="hero__tech">C++ • Unreal Engine 5 • Systems Architecture • Performance Optimization</p>
+            
+            <ul class="hero__links">
+                <li><a href="https://www.linkedin.com/in/mlobdev/" class="btn" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/mlobdev/" class="btn" target="_blank" rel="noopener">GitHub</a></li>
+                <li>
+                    <a href="mailto:mlobdev@gmail.com" class="btn email-btn">
+                        mlobdev@gmail.com
+                        <span class="tooltip" id="email-tooltip">Copied!</span>
+                    </a>
+                </li>
+                <li><a href="../assets/CV_ManuelLobato.pdf" class="btn">Resume / CV</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="section">
+            <h3 class="section__title">Profile & Engineering Experience</h3>
+            <div class="grid-2">
+                
+                <article class="card">
+                    <h4 class="card__title">About Me</h4>
+                    <ul>
+                        <li><strong>Technical Programmer:</strong> Focused on engine-level architecture, memory management, and performance-first gameplay systems.</li>
+                        <li><strong>Engineering Mindset:</strong> Applies UML, design patterns, and modular system design to produce scalable, maintainable gameplay systems.</li>
+                        <li><strong>VR & Optimization:</strong> Designs modular post-processing and content activation pipelines, ensuring high-performance VR experiences across complex scenes.</li>
+                        <li><strong>Problem Solver:</strong> Passionate about identifying bottlenecks and implementing robust solutions, bridging C++ systems with designer-friendly Blueprints.</li>
+                        <li><strong>Shipped Titles:</strong> Contributed to commercial releases, handling core architecture, platform integrations, and gameplay system design.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h4 class="card__title">Experience</h4>
+                    
+                    <h5 class="card__subtitle experience-subtitle">Unreal Engine Programmer Intern — VREstudio</h5>
+                    <p class="experience-date">March 2026 - Present | Malaga, Spain</p>
+                    <ul>
+                        <li>Engineered editor utilities and runtime management systems to dynamically activate/deactivate rendering and gameplay components, ensuring VR experiences consistently maintain 90 FPS across heavy scenes.</li>
+                        <li>Optimized draw calls and GPU/CPU usage using <strong>Unreal Insights</strong>, implementing HISM and collapsing material IDs to remove 600+ excess draw calls per frame.</li>
+                        <li>Developed modular post-processing and content activation pipelines that scale across multiple VR environments, enabling designers to iterate quickly without performance loss.</li>
+                    </ul>
+
+                    <h5 class="card__subtitle experience-subtitle">Unity Gameplay Programmer Intern — BeByte</h5>
+                    <p class="experience-date">April 2025 - May 2025 | Malaga, Spain</p>
+                    <ul>
+                        <li>Engineered core C# mechanics using dependency injection and Observer patterns</li>
+                    </ul>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Engineering Deep Dive: Project STARS (UE5)</h2>
+            <p class="rd-intro">
+                STARS is an ongoing 3D Hack and Slash project focused on solving complex gameplay, rendering, and performance challenges in a mixed-gravity planetary environment. Core systems are written in C++ and exposed to Blueprints for design iteration.
+            </p>
+
+            <article class="tech-feature card">
+                <h3 class="tech-feature__title">Character Systems & Control Architecture (C++)</h3>
+                <div class="tech-feature__content">
+                    <ul>
+                        <li><strong>Layered State Machine Architecture:</strong> Developed a multi-layered state system separating movement physics, input logic, and animation into independent layers. Enables consistent behavior across radically different traversal contexts.</li>
+                        <li><strong>Context-Driven Input System:</strong> Created a flexible input framework where actions dynamically adapt to gameplay context, eliminating hardcoded branching.</li>
+                    </ul>
+                    
+                    <div class="code-snippet-container">
+                        <p><em>Snippet: Exposing native, pointer-safe vector math via a Blueprint Function Library.</em></p>
+                        <pre><code class="language-cpp">
+                        void UPlanetMathLibrary::RelativePlanetOrientation(UCharacterMovementComponent* MovementComp, USceneComponent* Capsule, USceneComponent* Mesh, float DeltaTime, float RotationSpeed)
+                        {
+                            // Safety check
+                            if (!MovementComp || !Capsule || !Mesh) return;
+
+                            FVector Accel = MovementComp->GetCurrentAcceleration();
+                            FVector UpVector = Capsule->GetUpVector();
+
+                            // Project acceleration onto the planetary tangent plane
+                            FVector PlaneAccel = FVector::VectorPlaneProject(Accel, UpVector);
+                            if (PlaneAccel.IsNearlyZero(0.1f)) return;
+
+                            PlaneAccel.Normalize();
+                            
+                            FQuat TargetQuat = FRotationMatrix::MakeFromXZ(PlaneAccel, UpVector).ToQuat();
+                            FQuat CurrentQuat = Mesh->GetComponentQuat();
+                            
+                            // Smooth spherical interpolation
+                            FQuat SmoothQuat = FMath::QInterpTo(CurrentQuat, TargetQuat, DeltaTime, RotationSpeed);
+                            Mesh->SetWorldRotation(SmoothQuat);
+                        }
+                        </code></pre>
+                    </div>
+
+                    <div class="technical-case-study" style="margin-top: 20px;">
+                        <p><strong>Blueprint Integration: Planetary Locomotion Flow</strong><br>
+                        By exposing native math to the Blueprint VM, designers hook up Enhanced Input Actions to custom traversal logic without sacrificing runtime performance.</p>
+                        
+                        <div class="node-pipeline">
+                            <div class="node-flow">
+                                <span class="node-label">1. Input Layer:</span>
+                                <div class="node" style="border-color: #b71c1c; color: #ff8a80;">Enhanced Input: IA_MoveWalk</div>
+                                <div class="node-arrow">➔</div>
+                                <div class="node">Clear Jump State</div>
+                            </div>
+                            <div class="node-flow">
+                                <span class="node-label">2. Native Execution:</span>
+                                <div class="node" style="border-color: #0d47a1; color: #82b1ff;">ƒ Relative Planet Movement (C++)</div>
+                                <div class="node-arrow">➔</div>
+                                <div class="node" style="border-color: #0d47a1; color: #82b1ff;">ƒ Relative Planet Orientation (C++)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tech-feature card">
+                <h3 class="tech-feature__title">Rendering & Shader Engineering</h3>
+                <div class="tech-feature__content">
+                    <ul>
+                        <li><strong>Shader Optimization:</strong> Aggressive use of unlit materials and custom lighting approximations to drastically reduce rendering cost.</li>
+                        <li><strong>Custom Shadow Approximation:</strong> Implementation of shadow behavior in unlit pipelines using vector-based calculations, bypassing UE5 deferred lighting costs.</li>
+                        <li><strong>Advanced Material Systems:</strong> Development of triplanar projection workflows and custom post-process materials (cartoon water, underwater effects).</li>
+                    </ul>
+
+                    <div class="technical-case-study" style="margin-top: 20px;">
+                        <p><strong>Pipeline Architecture: M_UnlitToon Material</strong><br>
+                        Shading logic is routed through a custom unlit pipeline, utilizing static switches to strip unused instructions at compile time.</p>
+                        
+                        <div class="node-pipeline">
+                            <div class="node-flow">
+                                <span class="node-label">1. Core Toon Logic:</span>
+                                <div class="node">Atmospheric Light + Vertex Normal</div>
+                                <div class="node-arrow">➔</div>
+                                <div class="node">MF_Toonize (Custom Stepping)</div>
+                            </div>
+                            <div class="node-flow">
+                                <span class="node-label">2. Fresnel Rim:</span>
+                                <div class="node">Fresnel</div>
+                                <div class="node-arrow">➔</div>
+                                <div class="node">Multiply (FresnelColor Param)</div>
+                            </div>
+                            <div class="node-flow">
+                                <span class="node-label">3. Compositing:</span>
+                                <div class="node">Toon + Rim</div>
+                                <div class="node-arrow">➔</div>
+                                <div class="node">Static Switch (UsesFresnel)</div>
+                                <div class="node-arrow">➔</div>
+                                <div class="node output-node">Emissive Output</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tech-feature card">
+                <h3 class="tech-feature__title">Systems & Engine-Level Architecture (C++ & UML)</h3>
+                <div class="tech-feature__content">
+                    <ul>
+                        <li><strong>Software Architecture (UML):</strong> Strict utilization of UML class diagrams to map out inheritance, composition, and aggregation boundaries before implementation.</li>
+                        <li><strong>Global Planetary Registry:</strong> Engineered a custom <code>UWorldSubsystem</code> in C++ to provide immediate, globally accessible data for planetary gravity fields, replacing inefficient actor iterators.</li>
+                    </ul>
+                    
+                    <div class="technical-case-study" style="margin-top: 20px;">
+                        <p><strong>Architecture Documentation: Component-Based State Machine</strong><br>
+                        Structural overview of the decoupled movement system, demonstrating composition between the Entity and abstract Macro States.</p>
+                        <div style="background: #1e1e1e; padding: 15px; border-radius: 6px; text-align: center; border: 1px solid #333; overflow-x: auto;">
+                            <img src="https://img.plantuml.biz/plantuml/dsvg/bLPTJzim57sFbFzWQGzBoo9j22I4D4G8hUYq0bhBtjtabbXDxCXss2h6VvyTs_beWGP7gkfxhkrppprEUoaavh8gSjyJ6q9Bp761aXmBWPvz3wbnXPFD8sSLJMEMCuu-7Q_qOy28S_R7ni_gOHSndWAtm6az331bLDhmIHnDJx_QVQJaP5L9wE3fYNuCFWUPiRG3dXsllgtNllVIvRrgg2PrbkIO2WK1bRxdUv-_lpSKZXue1vohaWMWM8i0ul0oerQSAGg91EvqEvgp9mX6TlAZAaezUHb696OSq8HA8hU6o50QTetb4DweScGMiw9aLAc0pj73JcXiCpNRGiqN4akOuoGZ57JwQ_7TnKTBl85hNE17272Xz9VdQ9qpB4TTALB28P64qNCq_Qs-CUxWXpBLctTF2eJ-x9olZkQiXdHtnesKhkBPxStarsovG6lEYhORlcVnCFntqGqFwS9zZhUgePYcwXGejcXHhPAFsS9kuJmnesKb6n-ubkcjNKOqku8CFn76Mxli4x7Lcc9DXRvdi-fANSoazq93AdUgezOwmJ83TCKneQEXnRzldiQaSSMvIq9ljxnd5cEInK6J67kIPDCS6rn3Bl6I561D-WLfVBajLM3o4vuWr_CzWzr4Yp12XgIx7q6zgo3QrQF6QkCmF53wi2P4Ao6rNTjkr9iTNehTmfqszELfBATe0pU2EiKcVudiHxGc9hAhNwjKNvpxkzcjke_BEvIO1gFwJgFWkduHG8eY8LX2i5NlW5l2yEAjIeQ-Ksd2GHFioVcHgqn1_Lfkf_dMRR67lGgqmHwFMWxHlyjrOsoRNplGNEKtTTZZCIH_OAxlNG9DrL-5_m00" alt="State Machine UML Class Diagram" style="max-width: 100%; height: auto; border-radius: 4px;">
+                        </div>
+                        <p>By exposing planetary locomotion math to Blueprints, designers can iterate freely without sacrificing runtime performance.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="section">
+            <h3 class="section__title">Shipped Commercial Titles</h3>
+            <div class="grid-2">
+                
+                <article class="card project-card">
+                    <img src="../assets/maincapsule.png" alt="Casino Los Pixels Capsule" class="project-card__image" id="casino-capsule-img">
+                    <div class="project-card__content">
+                        <h4 class="card__title">Casino Los Pixels</h4>
+                        <p class="card__subtitle">Steam & Play Store</p>
+                        <ul>
+                            <li>Engineered the full application lifecycle, including gameplay loop, progression systems, and fail-state handling.</li>
+                            <li>Maintained production stability through systematic debugging, regression validation, and iterative performance improvements.</li>
+                        </ul>
+                        <div class="project-card__links">
+                            <a href="https://store.steampowered.com/app/4001680/Casino_Los_Pixels/" class="project-link" target="_blank" rel="noopener">▶ Steam</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.mlobdev.casinolospixels" class="project-link" target="_blank" rel="noopener">📱 Play Store</a>
+                            <a href="https://youtu.be/qBpgwI6kkfw?si=zA_5VcNX5MkhN8mH" class="project-link" target="_blank" rel="noopener">🎬 Trailer</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card project-card">
+                    <img src="../assets/splash.png" alt="Eva's Piano Splash" class="project-card__image project-card__image--top">
+                    <div class="project-card__content">
+                        <h4 class="card__title">Eva’s Piano</h4>
+                        <p class="card__subtitle">Open Source Commercial App</p>
+                        <ul>
+                            <li>Designed and implemented a responsive mobile input system, ensuring low-latency interaction and precise feedback for real-time gameplay.</li>
+                            <li>Owned the full development lifecycle, from concept to release on Google Play, including iteration, testing, and deployment.</li>
+                        </ul>
+                        <div class="project-card__links">
+                            <a href="https://github.com/mlobdev/eva-s-piano" class="project-link" target="_blank" rel="noopener">💻 GitHub</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.mlobdev.evaspiano" class="project-link" target="_blank" rel="noopener">📱 Play Store</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section section--no-border">
+            <h3 class="section__title">Technical Core</h3>
+            <div class="grid-2">
+                
+                <div class="skill-group">
+                    <h4>Languages</h4>
+                    <div class="skill-tags">
+                        <span class="tag">C++ (Primary)</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Blueprint</span>
+                        <span class="tag">HLSL / Shader Graph</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Profiling & Architecture</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Unreal Insights</span>
+                        <span class="tag">Memory Management</span>
+                        <span class="tag">Shader Optimization</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Math & Logic</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Vector Math </span>
+                        <span class="tag">Applied Physics </span>
+                        <span class="tag">Design Patterns</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Engines & APIs</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Unreal Engine 5</span>
+                        <span class="tag">Unity</span>
+                        <span class="tag">Steamworks API</span>
+                        <span class="tag">Git</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <script src="js/highlight.min.js"></script>
+    <script src="js/cpp.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
