@@ -15,8 +15,12 @@
         <div class="container hero__content">
             <h1 class="hero__title">Manuel Lobato</h1>
             <h2 class="hero__subtitle">Technical Gameplay Programmer</h2>
-            <p class="hero__tech">C++ • Unreal Engine 5 • Systems Architecture • Performance Optimization</p>
-            
+            <div class="hero__tech-stack">
+                <span class="hero-badge badge-primary">C++</span>
+                <span class="hero-badge badge-primary">Unreal Engine 5</span>
+                <span class="hero-badge badge-secondary">Systems Architecture</span>
+                <span class="hero-badge badge-secondary">VR Profiling & Optimization</span>
+            </div>
             <ul class="hero__links">
                 <li><a href="https://www.linkedin.com/in/mlobdev/" class="btn" target="_blank" rel="noopener">LinkedIn</a></li>
                 <li><a href="https://github.com/mlobdev/" class="btn" target="_blank" rel="noopener">GitHub</a></li>
@@ -30,6 +34,7 @@
             </ul>
         </div>
     </header>
+    
 
     <main class="container">
 
@@ -86,27 +91,27 @@
                     <div class="code-snippet-container">
                         <p><em>Snippet: Exposing native, pointer-safe vector math via a Blueprint Function Library.</em></p>
                         <pre><code class="language-cpp">
-                        void UPlanetMathLibrary::RelativePlanetOrientation(UCharacterMovementComponent* MovementComp, USceneComponent* Capsule, USceneComponent* Mesh, float DeltaTime, float RotationSpeed)
-                        {
-                            // Safety check
-                            if (!MovementComp || !Capsule || !Mesh) return;
+void UPlanetMathLibrary::RelativePlanetOrientation(UCharacterMovementComponent* MovementComp, USceneComponent* Capsule, USceneComponent* Mesh, float DeltaTime, float RotationSpeed)
+{
+    // Safety check
+    if (!MovementComp || !Capsule || !Mesh) return;
 
-                            FVector Accel = MovementComp->GetCurrentAcceleration();
-                            FVector UpVector = Capsule->GetUpVector();
+    FVector Accel = MovementComp->GetCurrentAcceleration();
+    FVector UpVector = Capsule->GetUpVector();
 
-                            // Project acceleration onto the planetary tangent plane
-                            FVector PlaneAccel = FVector::VectorPlaneProject(Accel, UpVector);
-                            if (PlaneAccel.IsNearlyZero(0.1f)) return;
+    // Project acceleration onto the planetary tangent plane
+    FVector PlaneAccel = FVector::VectorPlaneProject(Accel, UpVector);
+    if (PlaneAccel.IsNearlyZero(0.1f)) return;
 
-                            PlaneAccel.Normalize();
-                            
-                            FQuat TargetQuat = FRotationMatrix::MakeFromXZ(PlaneAccel, UpVector).ToQuat();
-                            FQuat CurrentQuat = Mesh->GetComponentQuat();
-                            
-                            // Smooth spherical interpolation
-                            FQuat SmoothQuat = FMath::QInterpTo(CurrentQuat, TargetQuat, DeltaTime, RotationSpeed);
-                            Mesh->SetWorldRotation(SmoothQuat);
-                        }
+    PlaneAccel.Normalize();
+    
+    FQuat TargetQuat = FRotationMatrix::MakeFromXZ(PlaneAccel, UpVector).ToQuat();
+    FQuat CurrentQuat = Mesh->GetComponentQuat();
+    
+    // Smooth spherical interpolation
+    FQuat SmoothQuat = FMath::QInterpTo(CurrentQuat, TargetQuat, DeltaTime, RotationSpeed);
+    Mesh->SetWorldRotation(SmoothQuat);
+}
                         </code></pre>
                     </div>
 
@@ -182,9 +187,11 @@
                     <div class="technical-case-study" style="margin-top: 20px;">
                         <p><strong>Architecture Documentation: Component-Based State Machine</strong><br>
                         Structural overview of the decoupled movement system, demonstrating composition between the Entity and abstract Macro States.</p>
-                        <div style="background: #1e1e1e; padding: 15px; border-radius: 6px; text-align: center; border: 1px solid #333; overflow-x: auto;">
-                            <img src="https://img.plantuml.biz/plantuml/dsvg/bLPTJzim57sFbFzWQGzBoo9j22I4D4G8hUYq0bhBtjtabbXDxCXss2h6VvyTs_beWGP7gkfxhkrppprEUoaavh8gSjyJ6q9Bp761aXmBWPvz3wbnXPFD8sSLJMEMCuu-7Q_qOy28S_R7ni_gOHSndWAtm6az331bLDhmIHnDJx_QVQJaP5L9wE3fYNuCFWUPiRG3dXsllgtNllVIvRrgg2PrbkIO2WK1bRxdUv-_lpSKZXue1vohaWMWM8i0ul0oerQSAGg91EvqEvgp9mX6TlAZAaezUHb696OSq8HA8hU6o50QTetb4DweScGMiw9aLAc0pj73JcXiCpNRGiqN4akOuoGZ57JwQ_7TnKTBl85hNE17272Xz9VdQ9qpB4TTALB28P64qNCq_Qs-CUxWXpBLctTF2eJ-x9olZkQiXdHtnesKhkBPxStarsovG6lEYhORlcVnCFntqGqFwS9zZhUgePYcwXGejcXHhPAFsS9kuJmnesKb6n-ubkcjNKOqku8CFn76Mxli4x7Lcc9DXRvdi-fANSoazq93AdUgezOwmJ83TCKneQEXnRzldiQaSSMvIq9ljxnd5cEInK6J67kIPDCS6rn3Bl6I561D-WLfVBajLM3o4vuWr_CzWzr4Yp12XgIx7q6zgo3QrQF6QkCmF53wi2P4Ao6rNTjkr9iTNehTmfqszELfBATe0pU2EiKcVudiHxGc9hAhNwjKNvpxkzcjke_BEvIO1gFwJgFWkduHG8eY8LX2i5NlW5l2yEAjIeQ-Ksd2GHFioVcHgqn1_Lfkf_dMRR67lGgqmHwFMWxHlyjrOsoRNplGNEKtTTZZCIH_OAxlNG9DrL-5_m00" alt="State Machine UML Class Diagram" style="max-width: 100%; height: auto; border-radius: 4px;">
-                        </div>
+                        <object 
+                            type="image/svg+xml" 
+                            data="https://img.plantuml.biz/plantuml/dsvg/bLPTJzim57sFbFzWQGzBoo9j22I4D4G8hUYq0bhBtjtabbXDxCXss2h6VvyTs_beWGP7gkfxhkrppprEUoaavh8gSjyJ6q9Bp761aXmBWPvz3wbnXPFD8sSLJMEMCuu-7Q_qOy28S_R7ni_gOHSndWAtm6az331bLDhmIHnDJx_QVQJaP5L9wE3fYNuCFWUPiRG3dXsllgtNllVIvRrgg2PrbkIO2WK1bRxdUv-_lpSKZXue1vohaWMWM8i0ul0oerQSAGg91EvqEvgp9mX6TlAZAaezUHb696OSq8HA8hU6o50QTetb4DweScGMiw9aLAc0pj73JcXiCpNRGiqN4akOuoGZ57JwQ_7TnKTBl85hNE17272Xz9VdQ9qpB4TTALB28P64qNCq_Qs-CUxWXpBLctTF2eJ-x9olZkQiXdHtnesKhkBPxStarsovG6lEYhORlcVnCFntqGqFwS9zZhUgePYcwXGejcXHhPAFsS9kuJmnesKb6n-ubkcjNKOqku8CFn76Mxli4x7Lcc9DXRvdi-fANSoazq93AdUgezOwmJ83TCKneQEXnRzldiQaSSMvIq9ljxnd5cEInK6J67kIPDCS6rn3Bl6I561D-WLfVBajLM3o4vuWr_CzWzr4Yp12XgIx7q6zgo3QrQF6QkCmF53wi2P4Ao6rNTjkr9iTNehTmfqszELfBATe0pU2EiKcVudiHxGc9hAhNwjKNvpxkzcjke_BEvIO1gFwJgFWkduHG8eY8LX2i5NlW5l2yEAjIeQ-Ksd2GHFioVcHgqn1_Lfkf_dMRR67lGgqmHwFMWxHlyjrOsoRNplGNEKtTTZZCIH_OAxlNG9DrL-5_m00" 
+                            style="max-width: 100%; height: auto; border-radius: 4px; background-color: #202020; padding: 10px; box-sizing: border-box;">
+                        </object>
                         <p>By exposing planetary locomotion math to Blueprints, designers can iterate freely without sacrificing runtime performance.</p>
                     </div>
                 </div>
