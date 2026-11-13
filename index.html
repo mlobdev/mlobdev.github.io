@@ -3,239 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel Lobato — Technical Programmer</title>
+    <title>Manuel Lobato — Tools Programmer & QA | C++ & C#</title>
+    <meta name="description" content="Game Developer specializing in Engine Tooling (Unreal Engine 5, Unity), C++/C# programming, and Quality Assurance.">
+    
+    <!-- Open Graph / Link Previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manuel Lobato — Tools Programmer & QA">
+    <meta property="og:description" content="Unreal Engine 5 & Unity Tooling, C++/C# Development & Quality Assurance.">
+    <meta property="og:image" content="assets/Controller.webp">
+
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
     <link rel="manifest" href="assets/favicons/site.webmanifest">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="src/css/styles.css">
-    <link rel="stylesheet" href="src/css/vs2015.min.css">
 </head>
 <body>
 
     <header class="hero">
-        <img class="hero__cover" src="assets/Controller.webp" alt="Cover background">
+        <img class="hero__cover" src="assets/Controller.webp" alt="Cover background" fetchpriority="high">
         
         <div class="container hero__content">
             <h1 class="hero__title">Manuel Lobato</h1>
-            <h2 class="hero__subtitle">Technical Gameplay Programmer</h2>
+            <h2 class="hero__subtitle">Tools Programmer & Quality Assurance | C++ & C#</h2>
             <div class="hero__tech-stack">
-                <span class="hero-badge badge-primary">C++</span>
-                <span class="hero-badge badge-primary">Unreal Engine 5</span>
-                <span class="hero-badge badge-secondary">Systems Architecture</span>
-                <span class="hero-badge badge-secondary">VR Profiling & Optimization</span>
+                <span class="hero-badge badge-primary">C++ / C# / Blueprints / GDScript</span>
+                <span class="hero-badge badge-primary">Unreal Engine 5, Unity & Godot</span>
+                <span class="hero-badge badge-secondary">Editor Tooling & HLSL</span>
+                <span class="hero-badge badge-secondary">QA & Optimization</span>
             </div>
             <ul class="hero__links">
-                <li><a href="https://www.linkedin.com/in/mlobdev/" class="btn" target="_blank" rel="noopener">LinkedIn</a></li>
-                <li><a href="https://github.com/mlobdev/" class="btn" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/mlobdev/" class="btn" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://github.com/mlobdev/" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                 <li>
                     <a href="mailto:mlobdev@gmail.com" class="btn email-btn">
                         mlobdev@gmail.com
                         <span class="tooltip" id="email-tooltip">Copied!</span>
                     </a>
                 </li>
-                <li><a href="assets/CV_ManuelLobato.pdf" class="btn">Resume</a></li>
+                <li><a href="assets/CV_ManuelLobato.pdf" class="btn" target="_blank" rel="noopener noreferrer">Resume</a></li>
             </ul>
         </div>
     </header>
-    
 
     <main class="container">
 
+        <!-- PROFILE & EXPERIENCE -->
         <section class="section">
-            <h3 class="section__title">Profile & Engineering Experience</h3>
-            <div class="grid-2">
+            <h3 class="section__title">Profile & Professional Experience</h3>
+            
+            <!-- ABOUT ME -->
+            <article class="card" style="margin-bottom: 1.5rem;">
+                <h4 class="card__title">About Me</h4>
+                <ul>
+                    <li><strong>Developer & QA Profile:</strong> Combines C++ and C# programming with professional AAA Linguistic QA experience to build stable games and practical editor tools.</li>
+                    <li><strong>Engine Tooling:</strong> Develops Unreal Engine 5 editor utilities and rendering workflows designed to speed up daily production tasks (<strong>250+ Fab Marketplace downloads</strong>).</li>
+                    <li><strong>Shipped Projects:</strong> Experienced in taking independent games and commercial tools from initial concept to public release on Steam and Google Play.</li>
+                </ul>
+            </article>
+
+            <!-- EXPERIENCE -->
+            <article class="card">
+                <h4 class="card__title">Experience</h4>
+
+                <h5 class="card__subtitle experience-subtitle">Linguistic QA Tester — Localsoft, S.L.</h5>
+                <p class="experience-date">Jul 2026 – Present | Malaga TechPark, Spain</p>
+                <ul>
+                    <li>Execute linguistic quality assurance test plans on unreleased AAA video game titles.</li>
+                    <li>Isolate and log localization and context bugs in tracking databases with clear reproduction steps and severity triage.</li>
+                    <li>Verify compliance with platform hardware terminology and client-specific style guides.</li>
+                </ul>
+
+                <h5 class="card__subtitle experience-subtitle">Indie Game & Engine Tools Developer — mlobdev</h5>
+                <p class="experience-date">Oct 2024 – Present | Malaga, Spain</p>
+                <ul>
+                    <li>Develop and maintain production tools for Unreal Engine 5 on the Epic Games Fab Marketplace, surpassing <strong>250+ downloads</strong>.</li>
+                    <li>Build Editor Utility Widgets (EUW) and custom HLSL post-processing tools to automate scene setup and level optimization.</li>
+                    <li>Handle the complete development, testing, and store deployment of independent commercial games.</li>
+                </ul>
                 
-                <article class="card">
-                    <h4 class="card__title">About Me</h4>
-                    <ul>
-                        <li><strong>Technical Programmer:</strong> Focused on engine-level architecture, memory management, and performance-first gameplay systems.</li>
-                        <li><strong>Engineering Mindset:</strong> Applies UML, design patterns, and modular system design to produce scalable, maintainable gameplay systems.</li>
-                        <li><strong>VR & Optimization:</strong> Designs modular post-processing and content activation pipelines, ensuring high-performance VR experiences across complex scenes.</li>
-                        <li><strong>Problem Solver:</strong> Passionate about identifying bottlenecks and implementing robust solutions, bridging C++ systems with designer-friendly Blueprints.</li>
-                        <li><strong>Shipped Titles:</strong> Contributed to commercial releases, handling core architecture, platform integrations, and gameplay system design.</li>
-                    </ul>
+                <h5 class="card__subtitle experience-subtitle">Unreal Engine Programmer Intern — VREstudio</h5>
+                <p class="experience-date">Mar 2026 – Jun 2026 | Malaga City, Spain</p>
+                <ul>
+                    <li>Developed interactive Virtual Reality environments under strict performance targets to keep frame rates stable in real time.</li>
+                    <li>Programmed modular gameplay systems in C++, applying clean design patterns to keep the codebase maintainable.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- ENGINE TOOLS & RENDERING UTILITIES -->
+        <section class="section">
+            <h3 class="section__title">Engine Tools & Rendering Utilities</h3>
+            <div class="grid-2">
+
+                <article class="card project-card">
+                    <div class="project-card__content">
+                        <h4 class="card__title">ProInstancer</h4>
+                        <p class="card__subtitle">Unreal Engine 5 • Blueprints • EUW (Jun 2026 | 250+ Downloads)</p>
+                        <ul>
+                            <li>Published an open-source level optimization tool on the Fab Marketplace focused on reducing draw calls and CPU overhead.</li>
+                            <li>Built a non-destructive conversion system using <strong>Factory and Strategy patterns</strong> to batch-convert Static Mesh Actors into ISM or HISM components.</li>
+                        </ul>
+                        <div class="project-card__links">
+                            <a href="https://fab.com/s/6b90b852dc68" class="project-link" target="_blank" rel="noopener noreferrer">💻 FAB</a>
+                            <a href="https://github.com/mlobdev/ProInstancer" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </div>
                 </article>
 
-                <article class="card">
-                    <h4 class="card__title">Experience</h4>
-                    
-                    <h5 class="card__subtitle experience-subtitle">Unreal Engine Programmer Intern — VREstudio</h5>
-                    <p class="experience-date"> Malaga, Spain</p>
-                    <ul>
-                        <li>Engineered editor utilities and runtime management systems to dynamically activate/deactivate rendering and gameplay components, ensuring VR experiences consistently maintain 90 FPS across heavy scenes.</li>
-                        <li>Optimized draw calls and GPU/CPU usage using <strong>Unreal Insights</strong>, implementing HISM and collapsing material IDs to remove 600+ excess draw calls per frame.</li>
-                        <li>Developed modular post-processing and content activation pipelines that scale across multiple VR environments, enabling designers to iterate quickly without performance loss.</li>
-                    </ul>
+                <article class="card project-card">
+                    <div class="project-card__content">
+                        <h4 class="card__title">PostProcess Manager Pro</h4>
+                        <p class="card__subtitle">Unreal Engine 5 • EUW • Data Assets (Nov 2026)</p>
+                        <ul>
+                            <li>Created an Editor Utility Widget toolset that lets artists save and spawn Post Process Volume presets using Data Assets.</li>
+                            <li>Simplifies lighting iteration across levels and avoids manual setup mistakes.</li>
+                        </ul>
+                        <div class="project-card__links">
+                            <a href="https://fab.com/s/6fd308d072fd" class="project-link" target="_blank" rel="noopener noreferrer">💻 FAB</a>
+                        </div>
+                    </div>
+                </article>
 
-                    <h5 class="card__subtitle experience-subtitle">Unity Gameplay Programmer Intern — BeByte</h5>
-                    <p class="experience-date">April 2025 - May 2025 | Malaga, Spain</p>
-                    <ul>
-                        <li>Engineered core C# mechanics using dependency injection and Observer patterns.</li>
-                    </ul>
+                <article class="card project-card">
+                    <div class="project-card__content">
+                        <h4 class="card__title">Remove Unreal Look</h4>
+                        <p class="card__subtitle">Unreal Engine 5 • HLSL • Post-Processing (Nov 2026)</p>
+                        <ul>
+                            <li>Implemented custom HLSL shader logic with multiple alternative tonemappers to neutralize default engine tone curves and auto-exposure.</li>
+                            <li>Delivers predictable color reproduction and neutral viewport lighting for artists.</li>
+                        </ul>
+                        <div class="project-card__links">
+                            <a href="https://fab.com/s/8700d45badef" class="project-link" target="_blank" rel="noopener noreferrer">💻 FAB</a>
+                        </div>
+                    </div>
                 </article>
 
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section__title">Engineering Deep Dive: Project STARS (UE5)</h2>
-            <p class="rd-intro">
-                STARS is an ongoing 3D Hack and Slash project focused on solving complex gameplay, rendering, and performance challenges in a mixed-gravity planetary environment. Core systems are written in C++ and exposed to Blueprints for design iteration.
-            </p>
-
-            <article class="tech-feature card">
-                <h3 class="tech-feature__title">Character Systems & Control Architecture (C++)</h3>
-                <div class="tech-feature__content">
-                    <ul>
-                        <li><strong>Layered State Machine Architecture:</strong> Developed a multi-layered state system separating movement physics, input logic, and animation into independent layers. Enables consistent behavior across radically different traversal contexts.</li>
-                        <li><strong>Context-Driven Input System:</strong> Created a flexible input framework where actions dynamically adapt to gameplay context, eliminating hardcoded branching.</li>
-                    </ul>
-                    
-                    <div class="code-snippet-container">
-                        <p><em>Snippet: Exposing native, pointer-safe vector math via a Blueprint Function Library.</em></p>
-                        <pre><code class="language-cpp">
-void UPlanetMathLibrary::RelativePlanetOrientation(UCharacterMovementComponent* MovementComp, USceneComponent* Capsule, USceneComponent* Mesh, float DeltaTime, float RotationSpeed)
-{
-    // Safety check
-    if (!MovementComp || !Capsule || !Mesh) return;
-
-    FVector Accel = MovementComp->GetCurrentAcceleration();
-    FVector UpVector = Capsule->GetUpVector();
-
-    // Project acceleration onto the planetary tangent plane
-    FVector PlaneAccel = FVector::VectorPlaneProject(Accel, UpVector);
-    if (PlaneAccel.IsNearlyZero(0.1f)) return;
-
-    PlaneAccel.Normalize();
-    
-    FQuat TargetQuat = FRotationMatrix::MakeFromXZ(PlaneAccel, UpVector).ToQuat();
-    FQuat CurrentQuat = Mesh->GetComponentQuat();
-    
-    // Smooth spherical interpolation
-    FQuat SmoothQuat = FMath::QInterpTo(CurrentQuat, TargetQuat, DeltaTime, RotationSpeed);
-    Mesh->SetWorldRotation(SmoothQuat);
-}
-                        </code></pre>
-                    </div>
-
-                    <div class="technical-case-study" style="margin-top: 20px;">
-                        <p><strong>Blueprint Integration: Planetary Locomotion Flow</strong><br>
-                        By exposing native math to the Blueprint VM, designers hook up Enhanced Input Actions to custom traversal logic without sacrificing runtime performance.</p>
-                        
-                        <div class="node-pipeline">
-                            <div class="node-flow">
-                                <span class="node-label">1. Input Layer:</span>
-                                <div class="node" style="border-color: #b71c1c; color: #ff8a80;">Enhanced Input: IA_MoveWalk</div>
-                                <div class="node-arrow">➔</div>
-                                <div class="node">Clear Jump State</div>
-                            </div>
-                            <div class="node-flow">
-                                <span class="node-label">2. Native Execution:</span>
-                                <div class="node" style="border-color: #0d47a1; color: #82b1ff;">ƒ Relative Planet Movement (C++)</div>
-                                <div class="node-arrow">➔</div>
-                                <div class="node" style="border-color: #0d47a1; color: #82b1ff;">ƒ Relative Planet Orientation (C++)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <article class="tech-feature card">
-                <h3 class="tech-feature__title">Rendering & Shader Engineering</h3>
-                <div class="tech-feature__content">
-                    <ul>
-                        <li><strong>Shader Optimization:</strong> Aggressive use of unlit materials and custom lighting approximations to drastically reduce rendering cost.</li>
-                        <li><strong>Custom Shadow Approximation:</strong> Implementation of shadow behavior in unlit pipelines using vector-based calculations, bypassing UE5 deferred lighting costs.</li>
-                        <li><strong>Advanced Material Systems:</strong> Development of triplanar projection workflows and custom post-process materials (cartoon water, underwater effects).</li>
-                    </ul>
-
-                    <div class="technical-case-study" style="margin-top: 20px;">
-                        <p><strong>Pipeline Architecture: M_UnlitToon Material</strong><br>
-                        Shading logic is routed through a custom unlit pipeline, utilizing static switches to strip unused instructions at compile time.</p>
-                        
-                        <div class="node-pipeline">
-                            <div class="node-flow">
-                                <span class="node-label">1. Core Toon Logic:</span>
-                                <div class="node">Atmospheric Light + Vertex Normal</div>
-                                <div class="node-arrow">➔</div>
-                                <div class="node">MF_Toonize (Custom Stepping)</div>
-                            </div>
-                            <div class="node-flow">
-                                <span class="node-label">2. Fresnel Rim:</span>
-                                <div class="node">Fresnel</div>
-                                <div class="node-arrow">➔</div>
-                                <div class="node">Multiply (FresnelColor Param)</div>
-                            </div>
-                            <div class="node-flow">
-                                <span class="node-label">3. Compositing:</span>
-                                <div class="node">Toon + Rim</div>
-                                <div class="node-arrow">➔</div>
-                                <div class="node">Static Switch (UsesFresnel)</div>
-                                <div class="node-arrow">➔</div>
-                                <div class="node output-node">Emissive Output</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <article class="tech-feature card">
-                <h3 class="tech-feature__title">Systems & Engine-Level Architecture (C++ & UML)</h3>
-                <div class="tech-feature__content">
-                    <ul>
-                        <li><strong>Software Architecture (UML):</strong> Strict utilization of UML class diagrams to map out inheritance, composition, and aggregation boundaries before implementation.</li>
-                        <li><strong>Global Planetary Registry:</strong> Engineered a custom <code>UWorldSubsystem</code> in C++ to provide immediate, globally accessible data for planetary gravity fields, replacing inefficient actor iterators.</li>
-                    </ul>
-                    
-                    <div class="technical-case-study" style="margin-top: 20px;">
-                        <p><strong>Architecture Documentation: Component-Based State Machine</strong><br>
-                        Structural overview of the decoupled movement system, demonstrating composition between the Entity and abstract Macro States.</p>
-                        <object 
-                            type="image/svg+xml" 
-                            data="assets/PlayerClassDiagramUML.svg" 
-                            style="max-width: 100%; height: auto; border-radius: 4px; background-color: #202020; padding: 10px; box-sizing: border-box;">
-                        </object>
-                        <!-- https://img.plantuml.biz/plantuml/dsvg/bLPTJzim57sFbFzWQGzBoo9j22I4D4G8hUYq0bhBtjtabbXDxCXss2h6VvyTs_beWGP7gkfxhkrppprEUoaavh8gSjyJ6q9Bp761aXmBWPvz3wbnXPFD8sSLJMEMCuu-7Q_qOy28S_R7ni_gOHSndWAtm6az331bLDhmIHnDJx_QVQJaP5L9wE3fYNuCFWUPiRG3dXsllgtNllVIvRrgg2PrbkIO2WK1bRxdUv-_lpSKZXue1vohaWMWM8i0ul0oerQSAGg91EvqEvgp9mX6TlAZAaezUHb696OSq8HA8hU6o50QTetb4DweScGMiw9aLAc0pj73JcXiCpNRGiqN4akOuoGZ57JwQ_7TnKTBl85hNE17272Xz9VdQ9qpB4TTALB28P64qNCq_Qs-CUxWXpBLctTF2eJ-x9olZkQiXdHtnesKhkBPxStarsovG6lEYhORlcVnCFntqGqFwS9zZhUgePYcwXGejcXHhPAFsS9kuJmnesKb6n-ubkcjNKOqku8CFn76Mxli4x7Lcc9DXRvdi-fANSoazq93AdUgezOwmJ83TCKneQEXnRzldiQaSSMvIq9ljxnd5cEInK6J67kIPDCS6rn3Bl6I561D-WLfVBajLM3o4vuWr_CzWzr4Yp12XgIx7q6zgo3QrQF6QkCmF53wi2P4Ao6rNTjkr9iTNehTmfqszELfBATe0pU2EiKcVudiHxGc9hAhNwjKNvpxkzcjke_BEvIO1gFwJgFWkduHG8eY8LX2i5NlW5l2yEAjIeQ-Ksd2GHFioVcHgqn1_Lfkf_dMRR67lGgqmHwFMWxHlyjrOsoRNplGNEKtTTZZCIH_OAxlNG9DrL-5_m00 -->
-                        <p>By exposing planetary locomotion math to Blueprints, designers can iterate freely without sacrificing runtime performance.</p>
-                    </div>
-                </div>
-            </article>
-        </section>
-
+        <!-- SHIPPED COMMERCIAL TITLES -->
         <section class="section">
             <h3 class="section__title">Shipped Commercial Titles</h3>
             <div class="grid-2">
                 
                 <article class="card project-card">
-                    <img src="assets/maincapsule.png" alt="Casino Los Pixels Capsule" class="project-card__image" id="casino-capsule-img">
+                    <img src="assets/maincapsule.png" alt="Casino Los Pixels Capsule" class="project-card__image" id="casino-capsule-img" loading="lazy">
                     <div class="project-card__content">
                         <h4 class="card__title">Casino Los Pixels</h4>
-                        <p class="card__subtitle">Steam & Play Store</p>
+                        <p class="card__subtitle">Godot • GDScript • Steam & Play Store (Nov 2024 – May 2025)</p>
                         <ul>
-                            <li>Engineered the full application lifecycle, including gameplay loop, progression systems, and fail-state handling.</li>
-                            <li>Maintained production stability through systematic debugging, regression validation, and iterative performance improvements.</li>
+                            <li>Handled the full development, QA testing, and commercial release on Steam and Google Play Store.</li>
+                            <li>Programmed the core gameplay systems and adaptable UI layouts for desktop and mobile screens.</li>
                         </ul>
                         <div class="project-card__links">
-                            <a href="https://store.steampowered.com/app/4001680/Casino_Los_Pixels/" class="project-link" target="_blank" rel="noopener">▶ Steam</a>
-                            <a href="https://play.google.com/store/apps/details?id=com.mlobdev.casinolospixels" class="project-link" target="_blank" rel="noopener">📱 Play Store</a>
-                            <a href="https://youtu.be/qBpgwI6kkfw?si=zA_5VcNX5MkhN8mH" class="project-link" target="_blank" rel="noopener">🎬 Trailer</a>
+                            <a href="https://store.steampowered.com/app/4001680/Casino_Los_Pixels/" class="project-link" target="_blank" rel="noopener noreferrer">▶ Steam</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.mlobdev.casinolospixels" class="project-link" target="_blank" rel="noopener noreferrer">📱 Play Store</a>
+                            <a href="https://youtu.be/qBpgwI6kkfw?si=zA_5VcNX5MkhN8mH" class="project-link" target="_blank" rel="noopener noreferrer">🎬 Trailer</a>
                         </div>
                     </div>
                 </article>
 
                 <article class="card project-card">
-                    <img src="assets/EvasPiano.webp" alt="Eva's Piano Img" class="project-card__image project-card__image--top">
+                    <img src="assets/EvasPiano.webp" alt="Eva's Piano Cover" class="project-card__image project-card__image--top" loading="lazy">
                     <div class="project-card__content">
                         <h4 class="card__title">Eva’s Piano</h4>
-                        <p class="card__subtitle">Open Source Commercial App</p>
+                        <p class="card__subtitle">Open Source Commercial App • Google Play</p>
                         <ul>
-                            <li>Designed and implemented a responsive mobile input system, ensuring low-latency interaction and precise feedback for real-time gameplay.</li>
-                            <li>Owned the full development lifecycle, from concept to release on Google Play, including iteration, testing, and deployment.</li>
+                            <li>Built a low-latency multi-touch input system with immediate audio and visual feedback.</li>
+                            <li>Completed the entire cycle from initial code to Google Play release, including device compatibility testing.</li>
                         </ul>
                         <div class="project-card__links">
-                            <a href="https://github.com/mlobdev/eva-s-piano" class="project-link" target="_blank" rel="noopener">💻 GitHub</a>
-                            <a href="https://play.google.com/store/apps/details?id=com.mlobdev.evaspiano" class="project-link" target="_blank" rel="noopener">📱 Play Store</a>
+                            <a href="https://github.com/mlobdev/eva-s-piano" class="project-link" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.mlobdev.evaspiano" class="project-link" target="_blank" rel="noopener noreferrer">📱 Play Store</a>
                         </div>
                     </div>
                 </article>
@@ -243,55 +186,85 @@ void UPlanetMathLibrary::RelativePlanetOrientation(UCharacterMovementComponent* 
             </div>
         </section>
 
-        <section class="section section--no-border">
-            <h3 class="section__title">Technical Core</h3>
+        <!-- TEAM PROJECTS -->
+        <section class="section">
+            <h3 class="section__title">Team Projects</h3>
             <div class="grid-2">
-                
-                <div class="skill-group">
-                    <h4>Languages</h4>
-                    <div class="skill-tags">
-                        <span class="tag">C++ (Primary)</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">Blueprint</span>
-                        <span class="tag">HLSL / Shader Graph</span>
-                    </div>
-                </div>
 
-                <div class="skill-group">
-                    <h4>Profiling & Architecture</h4>
-                    <div class="skill-tags">
-                        <span class="tag">Unreal Insights</span>
-                        <span class="tag">Memory Management</span>
-                        <span class="tag">Shader Optimization</span>
+                <article class="card project-card">
+                    <div class="project-card__content">
+                        <h4 class="card__title">La Cabrera Game</h4>
+                        <p class="card__subtitle">Unity • C# • Gameplay & QA</p>
+                        <ul>
+                            <li>Programmed and debugged gameplay mechanics in C# within the Unity Editor.</li>
+                            <li>Tested pre-release builds to catch functional bugs and edge cases before milestone deliveries.</li>
+                        </ul>
                     </div>
-                </div>
+                </article>
 
-                <div class="skill-group">
-                    <h4>Math & Logic</h4>
-                    <div class="skill-tags">
-                        <span class="tag">Vector Math </span>
-                        <span class="tag">Applied Physics </span>
-                        <span class="tag">Design Patterns</span>
+                <article class="card project-card">
+                    <div class="project-card__content">
+                        <h4 class="card__title">Project STARS</h4>
+                        <p class="card__subtitle">Unreal Engine 5 • C++ & Blueprints</p>
+                        <ul>
+                            <li>Programmed a component-based state machine and a custom planetary gravity <code>UWorldSubsystem</code> in C++.</li>
+                            <li>Exposed custom math functions to Blueprints so designers could iterate faster in the editor.</li>
+                        </ul>
                     </div>
-                </div>
-
-                <div class="skill-group">
-                    <h4>Engines & APIs</h4>
-                    <div class="skill-tags">
-                        <span class="tag">Unreal Engine 5</span>
-                        <span class="tag">Unity</span>
-                        <span class="tag">Steamworks API</span>
-                        <span class="tag">Git</span>
-                    </div>
-                </div>
+                </article>
 
             </div>
         </section>
 
+        <!-- TECHNICAL SKILLS -->
+        <section class="section section--no-border">
+            <h3 class="section__title">Technical Skills</h3>
+            
+            <div class="grid-2">
+                <div class="skill-group">
+                    <h4>Programming</h4>
+                    <div class="skill-tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Blueprints</span>
+                        <span class="tag">GDScript</span>
+                        <span class="tag">HLSL</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Engines & Focus</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Unreal Engine 5</span>
+                        <span class="tag">Unity</span>
+                        <span class="tag">Godot</span>
+                        <span class="tag">Editor Tooling (EUW)</span>
+                        <span class="tag">Level Optimization</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>QA & Workflow</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Bug Tracking & Triage</span>
+                        <span class="tag">LQA & Compliance</span>
+                        <span class="tag">Git & GitHub</span>
+                        <span class="tag">Visual Studio</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Languages</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Spanish (Native)</span>
+                        <span class="tag">English (C1)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
-    <script src="src/js/highlight.min.js"></script>
-    <script src="src/js/cpp.min.js"></script>
+
     <script src="src/js/main.js"></script>
-    <script>hljs.highlightAll();</script>
 </body>
 </html>
